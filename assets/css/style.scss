@@ -1,0 +1,27 @@
+// Import the base styles from Alembic
+@import "alembic";
+
+// Add your custom styles below this line
+
+.upload-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.image-preview {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.loading-indicator {
+  display: none; /* Hide by default */
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+// Add more custom styles as needed
+

@@ -12,3 +12,5 @@ stylesheets:
   - /assets/css/custom.css
 javascripts:
   - /assets/js/custom.js
+
+css_inline: true
