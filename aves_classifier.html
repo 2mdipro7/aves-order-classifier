@@ -3,30 +3,23 @@ title: Aves Order Classifier
 layout: page
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aves Order Classifier</title>
-  <link rel="stylesheet" href="assets/css/custom.css">
-</head>
-<body>
-  <h1>Aves Order Classifier</h1>
+<input id="photo" type="file">
 
-  <label for="photo" class="upload-label">Upload an image:</label>
-  <input id="photo" type="file">
+<div id="results"></div>
 
-  <div id="image-preview" class="image-preview"></div>
-
-  <div id="loading-indicator" class="loading-indicator">
-    <img src="loading-spinner.gif" alt="Loading Spinner">
-  </div>
-
-  <div id="results"></div>
-
-  <div id="error-message" class="error-message"></div>
-
-  <script src="assets/js/custom.js"></script>
-</body>
-</html>
+<script>
+  async function loaded(reader) {   
+  const response = await fetch("https://dipro7-aves-order-classifier.hf.space/run/predict", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({data: [reader.result]})});
+  const json = await response.json();
+  const label = json['data'][0]['label'];
+  results.innerHTML = `<br/> <img src = "${reader.result}" width="500"> <p>${label}</p>`;
+  }
+  function read() {
+      const reader = new FileReader();
+      reader.addEventListener('load', () => loaded(reader))
+      reader.readAsDataURL(photo.files[0]);
+  }
+  photo.addEventListener('input', read);
+</script>
