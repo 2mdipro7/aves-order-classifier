@@ -7,3 +7,8 @@ description: An Image Classification API that classifies all known bird species 
 
 author:
   name: Mehrab Mashrafi
+
+stylesheets:
+  - /assets/css/custom.css
+javascripts:
+  - /assets/js/custom.js

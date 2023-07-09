@@ -1,0 +1,26 @@
+/* Custom CSS Styles */
+
+/* Upload label */
+.upload-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Image preview */
+  .image-preview {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  /* Loading indicator */
+  .loading-indicator {
+    display: none; /* Hide by default */
+  }
+  
+  /* Error message */
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
