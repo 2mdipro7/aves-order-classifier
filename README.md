@@ -1,20 +1,24 @@
-# Bird Classification in Aves Class
+# Aves Order Classifier
 
-This repository contains the code and data for classifying 42 different bird species in the Aves class of the Animal Kingdom.
+This repository contains the code and data for classifying 42 different bird orders in the Aves class of the Animal Kingdom.
 
 ## Table of Contents
 - [Dataset](#dataset)
+- [Handling Bias][#handling-bias]
 - [Model](#model)
 - [Results](#results)
 - [Usage](#usage)
-- [Deployed Model](#deployedmodel)
+- [Model](#model)
 - [License](#license)
 
 ## Dataset
-The dataset used for training the model consists of over 11,000 bird images, with each order represented by approximately 250-300 images. The images were collected from various sources and carefully labeled with the corresponding bird species.
+The dataset used for training the model consists a total of 10,575 bird images, with each order represented by approximately 250-300 images. The images were collected from various sources from the web using the search_images_ddg() function of fastai, and carefully labeled with the corresponding bird order.
+
+## Handling Bias
+To minimize the bias in the model, different keywords were used to download an equal number of bird images for each label. Instead of just bird sitting on trees, "flying bird" and other postions were considered as well for maintaining data consistency throughout the dataset.
 
 ## Model
-The classification model used in this project is ResNet101, a deep convolutional neural network known for its excellent performance in image classification tasks. The model has been pre-trained on a large dataset and fine-tuned on the bird image dataset to improve its accuracy and ability to classify bird species.
+The classification model used in this project is ResNet101, a deep convolutional neural network known for its excellent performance in image classification tasks. The model has been pre-trained on a large dataset and fine-tuned on the bird image dataset to improve its accuracy and ability to classify bird orders.
 
 ## Results
 After training the model, the following results were achieved:
@@ -28,7 +32,7 @@ The model shows promising performance with a low validation loss, low error rate
 ## Usage
 To use this code and replicate the bird classification, please follow the instructions in the repository. Make sure to have the necessary dependencies installed and the dataset properly configured.
 
-## Deployed Model
+## Model
 Visit this space on HuggingFace test the model - https://huggingface.co/spaces/dipro7/aves-order-classifier
 
 ## License
