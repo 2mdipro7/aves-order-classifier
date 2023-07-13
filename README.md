@@ -7,7 +7,7 @@ This repository contains the code and data for classifying 42 different bird spe
 - [Model](#model)
 - [Results](#results)
 - [Usage](#usage)
-- [HuggingFace](#deployed model)
+- [Deployed Model](#deployedmodel)
 - [License](#license)
 
 ## Dataset
