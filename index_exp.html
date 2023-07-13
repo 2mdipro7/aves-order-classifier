@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aves Order Classifier</title>
+  <style>
+    /* Add your custom CSS styles here */
+    .upload-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .image-preview {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+
+    .loading-indicator {
+      display: none; /* Hide by default */
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .interesting-facts {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aves Order Classifier</h1>
+
+  <label for="photo" class="upload-label">Upload an image:</label>
+  <input id="photo" type="file">
+
+  <div id="image-preview" class="image-preview"></div>
+
+  <div id="loading-indicator" class="loading-indicator">
+    <img src="loading-spinner.gif" alt="Loading Spinner">
+  </div>
+
+  <div id="results"></div>
+
+  <div id="error-message" class="error-message"></div>
+
+  <div id="interesting-facts" class="interesting-facts"></div>
+
+  <script>
+    const photoInput = document.getElementById("photo");
+    const imagePreview = document.getElementById("image-preview");
+    const loadingIndicator = document.getElementById("loading-indicator");
+    const resultsContainer = document.getElementById("results");
+    const errorMessage = document.getElementById("error-message");
+    const interestingFactsContainer = document.getElementById("interesting-facts");
+
+    photoInput.addEventListener("change", handlePhotoUpload);
+
+    function handlePhotoUpload(event) {
+      const file = event.target.files[0];
+
+      // Display the image preview
+      const reader = new FileReader();
+      reader.onload = function() {
+        const image = document.createElement("img");
+        image.src = reader.result;
+        image.alt = "Uploaded Image";
+        imagePreview.innerHTML = "";
+        imagePreview.appendChild(image);
+      };
+      reader.readAsDataURL(file);
+
+      // Perform the prediction
+      predictOrder(file);
+    }
+
+    async function predictOrder(file) {
+      showLoadingIndicator();
+
+      // Perform API request and get the prediction result
+      const response = await fetch("https://dipro7-aves-order-classifier.hf.space/run/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: [file] })
+      });
+      const result = await response.json();
+
+      // Process the prediction result
+      const label = result.data[0].label;
+      displayPredictionResult(label);
+
+      hideLoadingIndicator();
+
+      // Get and display interesting facts
+      const facts = getInterestingFacts(label);
+      displayInterestingFacts(facts);
+    }
+
+    function showLoadingIndicator() {
+      loadingIndicator.style.display = "block";
+    }
+
+    function hideLoadingIndicator() {
+      loadingIndicator.style.display = "none";
+    }
+
+    function displayPredictionResult(label) {
+      resultsContainer.innerHTML = `<p>The predicted bird order is: ${label}</p>`;
+    }
+
+    function getInterestingFacts(order) {
+      let facts = [];
+
+      // Define interesting facts based on bird order
+      if (order === "Passeriformes") {
+        facts = [
+          "Passeriformes is the largest order of birds, with over 6,000 species.",
+          "They are known for their complex songs and diverse feeding habits."
+        ];
+      } else if (order === "Accipitriformes") {
+        facts = [
+          "Accipitriformes includes diurnal birds of prey, such as hawks, eagles, and vultures.",
+          "They are known for their sharp vision, powerful beaks, and talons."
+        ];
+      }
+
+      return facts;
+    }
+
+    function displayInterestingFacts(facts) {
+      let factsHTML = "<ul>";
+
+      facts.forEach((fact) => {
+        factsHTML += `<li>${fact}</li>`;
+    });
+
+    factsHTML += "</ul>";
+
+    interestingFactsContainer.innerHTML = `<h2>Interesting Facts</h2>${factsHTML}`;
+  }
+  </script>
+</body>
+</html>

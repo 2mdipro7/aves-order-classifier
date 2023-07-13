@@ -31,9 +31,5 @@ The orders are the following: <br/>
     "Caprimulgiformes"  # Nightjars
     "Cuculiformes"      # Cuckoos
     "Gruiformes"        # Cranes and rails
-    "Coraciiformes"     # Kingfishers
-    "Apodiformes"       # Swifts and hummingbirds
-    "Strigiformes"      # Owls
-    "Cathartiformes"    # New World vultures
     "Bucerotiformes"    # Hornbills
     "Trogoniformes"     # Trogons
