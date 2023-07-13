@@ -4,7 +4,7 @@ This repository contains the code and data for classifying 42 different bird ord
 
 ## Table of Contents
 - [Dataset](#dataset)
-- [Handling Bias][#handling-bias]
+- [Handling Bias](#handling-bias)
 - [Model](#model)
 - [Results](#results)
 - [Usage](#usage)
