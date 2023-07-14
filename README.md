@@ -35,11 +35,11 @@ Epoch | Train Loss | Valid Loss | Error Rate | Accuracy |
 The model shows improvement in terms of decreasing loss, error rate, and increasing accuracy as the training progresses. These initial results indicate that the model was learning and becoming more accurate in classifying the bird orders.
 
 After cleaning the data and fine tuning the training the model several times, the following results were achieved:
-**
+
 Epoch | Train Loss | Valid Loss | Error Rate | Accuracy |
 ------|------------|------------|------------|----------|
 0     | 0.381994   | 0.207986   | 0.060047   | 0.939953 |
-**
+
 The model shows promising performance with a low validation loss, low error rate, and high accuracy. It demonstrates its ability to accurately classify bird species based on the provided dataset.
 
 ## Usage
