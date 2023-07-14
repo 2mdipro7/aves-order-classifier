@@ -21,12 +21,25 @@ To minimize the bias in the model, different keywords were used to download an e
 The classification model used in this project is ResNet101, a deep convolutional neural network known for its excellent performance in image classification tasks. The model has been pre-trained on a large dataset and fine-tuned on the bird image dataset to improve its accuracy and ability to classify bird orders.
 
 ## Results
-After training the model, the following results were achieved:
 
+After training the model for several epochs, the following results were achieved:
+
+Epoch | Train Loss | Valid Loss | Error Rate | Accuracy |
+----- | ---------- | ---------- | ---------- | -------- |
+0     | 1.201289   | 0.965389   | 0.269411   | 0.730589 |
+1     | 1.223704   | 0.884236   | 0.224509   | 0.775491 |
+2     | 0.811814   | 0.741591   | 0.184284   | 0.815716 |
+3     | 0.493227   | 0.625785   | 0.163704   | 0.836296 |
+4     | 0.295220   | 0.618716   | 0.148737   | 0.851263 |
+
+The model shows improvement in terms of decreasing loss, error rate, and increasing accuracy as the training progresses. These initial results indicate that the model was learning and becoming more accurate in classifying the bird orders.
+
+After cleaning the data and fine tuning the training the model several times, the following results were achieved:
+**
 Epoch | Train Loss | Valid Loss | Error Rate | Accuracy |
 ------|------------|------------|------------|----------|
 0     | 0.381994   | 0.207986   | 0.060047   | 0.939953 |
-
+**
 The model shows promising performance with a low validation loss, low error rate, and high accuracy. It demonstrates its ability to accurately classify bird species based on the provided dataset.
 
 ## Usage
