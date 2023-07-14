@@ -1,6 +1,6 @@
-#remote_theme: daviddarnes/alembic@main
-#plugins:
-#- jekyll-remote-theme
+remote_theme: daviddarnes/alembic@main
+plugins:
+- jekyll-remote-theme
 
 title: Aves Order Classifier
 description: An Image Classification API that classifies all known bird species according to their Order name.
