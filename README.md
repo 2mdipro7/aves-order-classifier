@@ -8,6 +8,7 @@ This repository contains the code and data for classifying 42 different bird ord
 - [Benchmarking](#benchmarking)
 - [Selected Model](#selected-model)
 - [Insights](#insights)
+- [Discussions](#discussions)
 - [Selected Model](#selected-model)
 - [Usage](#usage)
 - [Model](#model)
@@ -70,7 +71,7 @@ On the other hand, the "Model Performance using ResNet152 Fine-Tuning" section h
 Considering these observations, fine-tuning the ResNet152 model appears to be a more favorable approach. The controlled reduction in both loss and error rate along with increasing accuracy signify a more stable convergence towards optimized performance. The approach seems to yield a better trade-off between training and validation phases compared to the Fit-One-Cycle method.
 
 
-## Conclusion
+## Discussions
 
 Considering these observations, fine-tuning the ResNet152 model appears to be a more favorable approach. The controlled reduction in both loss and error rate along with increasing accuracy signify a more stable convergence towards optimized performance. The approach seems to yield a better trade-off between training and validation phases compared to the Fit-One-Cycle method.
 
