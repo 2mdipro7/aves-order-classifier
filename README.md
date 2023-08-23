@@ -12,14 +12,14 @@ This repository contains the code and data for classifying 42 different bird ord
 - [License](#license)
 
 ## Dataset
-The dataset used for training the model consists a total of 10,575 bird images, with each order represented by approximately 250-300 images. The images were collected from various sources from the web using the search_images_ddg() function of fastai, and carefully labeled with the corresponding bird order.
+The dataset used for training the model consists a total of 12,600 bird images, with each order represented by approximately 250-300 images. The images were collected from various sources from the web using the search_images_ddg() function of fastai, and carefully labeled with the corresponding bird order.
 
 ## Handling Bias
 To minimize the bias in the model, different keywords were used to download an equal number of bird images for each label. Instead of just bird sitting on trees, "flying bird" and other postions were considered as well for maintaining data consistency throughout the dataset.
 
 ## Benchmarking
 
-# Model Performance on RESNET152 for the First 5 Epochs
+## Model Performance on RESNET152 for the First 5 Epochs
 
 This repository contains the performance metrics of our model trained on the RESNET152 architecture for the first 5 epochs. Below are the details of the training process and the corresponding results:
 
@@ -85,7 +85,7 @@ Upon considering our benchmarking results, the classification model used in this
 
 
 
-# Model Performance on RESNET101 for the First 5 Epochs
+## Model Performance on RESNET101 for the First 5 Epochs
 
 This repository contains the performance metrics of our model trained on the RESNET101 architecture for the first 5 epochs. Below are the details of the training process and the corresponding results:
 
