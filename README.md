@@ -6,7 +6,6 @@ This repository contains the code and data for classifying 42 different bird ord
 - [Dataset](#dataset)
 - [Handling Bias](#handling-bias)
 - [Benchmarking](#benchmarking)
-- [Selected Model](#selected-model)
 - [Insights](#insights)
 - [Discussions](#discussions)
 - [Selected Model](#selected-model)
