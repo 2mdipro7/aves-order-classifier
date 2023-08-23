@@ -7,6 +7,8 @@ This repository contains the code and data for classifying 42 different bird ord
 - [Handling Bias](#handling-bias)
 - [Benchmarking](#benchmarking)
 - [Selected Model](#selected-model)
+- [Insights](#insights)
+- [Selected Model](#selected-model)
 - [Usage](#usage)
 - [Model](#model)
 - [License](#license)
@@ -19,14 +21,8 @@ To minimize the bias in the model, different keywords were used to download an e
 
 ## Benchmarking
 
-## Model Performance on RESNET152 for the First 5 Epochs
-
-This repository contains the performance metrics of our model trained on the RESNET152 architecture for the first 5 epochs. Below are the details of the training process and the corresponding results:
-
-
-
-## Model Performance using ResNet152 Fit-One-Cyle
-## Training Details
+### Model Performance using ResNet152 Fit-One-Cyle
+#### Training Details
 
 - **Model**: RESNET152
 - **Training Time**: Approximately 40 minutes
@@ -44,8 +40,8 @@ Here's a summary of the model's performance on the validation set during the fir
 | 3     | 1.893896   | 1.089929   | 31.41%     | 68.59%   | 05:42  |
 | 4     | 1.785103   | 1.077894   | 30.68%     | 69.31%   | 05:44  |
 
-# Model Performance using ResNet152 Fine-Tuning
-## Training Details
+### Model Performance using ResNet152 Fine-Tuning
+#### Training Details
 
 - **Model**: RESNET152
 - **Training Time**: Approximately 2 hours
@@ -65,7 +61,7 @@ Here are the performance metrics of our model fine-tuned using the ResNet152 arc
 | 4     | 0.352030   | 0.439929   | 12.69%     | 87.31%   | 06:32   |
 
 
-## Insights
+### Insights
 
 In the "Model Performance using ResNet152 Fit-One-Cycle" section, the initial epochs demonstrate a considerable disparity between training and validation losses, indicating potential overfitting. Despite an improving accuracy and decreasing error rate, it's clear that the model requires more fine-tuning to achieve a balance between the training and validation phases.
 
@@ -85,11 +81,11 @@ Upon considering our benchmarking results, the classification model used in this
 
 
 
-## Model Performance on RESNET101 for the First 5 Epochs
+### Model Performance on RESNET101 for the First 5 Epochs
 
 This repository contains the performance metrics of our model trained on the RESNET101 architecture for the first 5 epochs. Below are the details of the training process and the corresponding results:
 
-## Training Details
+#### Training Details
 
 - **Model**: RESNET101
 - **Training Time**: Approximately 24 minutes
@@ -97,7 +93,7 @@ This repository contains the performance metrics of our model trained on the RES
 - **Learning Rate**: Not Used
 - **Model Freezing**: No (before training)
 
-## Performance Metrics
+#### Performance Metrics
 
 Epoch | Train Loss | Valid Loss | Error Rate | Accuracy |
 ----- | ---------- | ---------- | ---------- | -------- |
