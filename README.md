@@ -1,6 +1,10 @@
 # Aves Order Classifier
 
-This repository contains the code and data for classifying 42 different bird orders in the Aves class of the Animal Kingdom.
+The vast diversity of bird species within the Aves class of the Animal Kingdom has long fascinated scientists and naturalists alike. Traditionally, the classification of birds has relied on meticulous examination of physical attributes, ranging from size and coloration to dietary habits and ecological niches. This age-old practice has formed the foundation of our understanding of avian biodiversity. 
+
+In an era where artificial intelligence (AI) has revolutionized numerous domains, we find ourselves presented with a unique opportunity. What if we could harness the power of AI to enhance our ability to classify and identify birds within this rich tapestry of avian life?
+
+This project seeks to address this question by endeavoring to construct an innovative image classifier model capable of recognizing any bird species on Earth, categorizing them according to their respective orders. In the realm of ornithology, there are a total of 42 distinct orders within the avian class, each order representing a fascinating mosaic of avian diversity, distinct from the others in various ways. This ambitious project aims to harness the capabilities of AI and machine learning to create a tool that not only simplifies the classification process but also opens new avenues for research and understanding within the field of ornithology.
 
 ## Table of Contents
 - [Dataset](#dataset)
@@ -21,87 +25,62 @@ To minimize the bias in the model, different keywords were used to download an e
 
 ## Benchmarking
 
-### Model Performance using ResNet152 Fit-One-Cyle
-#### Training Details
-
-- **Model**: RESNET152
-- **Training Time**: Approximately 40 minutes
-- **Batch Size**: 16
-- **Learning Rate**: slice(0.0004786300996784123, 1.4454397387453363e-05, None)
-- **Model Freezing**: Yes (before training)
-
-Here's a summary of the model's performance on the validation set during the first 5 epochs:
-
-| Epoch | Train Loss | Valid Loss | Error Rate | Accuracy | Time   |
-|-------|------------|------------|------------|----------|--------|
-| 0     | 4.315430   | 2.982406   | 75.10%     | 24.90%   | 21:24  |
-| 1     | 2.664104   | 1.564841   | 43.53%     | 56.47%   | 05:42  |
-| 2     | 2.092243   | 1.187572   | 33.65%     | 66.34%   | 05:43  |
-| 3     | 1.893896   | 1.089929   | 31.41%     | 68.59%   | 05:42  |
-| 4     | 1.785103   | 1.077894   | 30.68%     | 69.31%   | 05:44  |
-
 ### Model Performance using ResNet152 Fine-Tuning
 #### Training Details
 
-- **Model**: RESNET152
-- **Training Time**: Approximately 2 hours
 - **Batch Size**: 16
 - **Learning Rate**: Not used
 - **Model Freezing**: No
+- **Epoch**: 5
 
 Here are the performance metrics of our model fine-tuned using the ResNet152 architecture. The model was trained over a series of epochs, and the following results were obtained:
 
-| Epoch | Train Loss | Valid Loss | Error Rate | Accuracy | Time    |
-|-------|------------|------------|------------|----------|---------|
-| 0     | 1.482540   | 0.996092   | 26.75%     | 73.25%   | 1:38:10 |
-| 0     | 1.267988   | 0.822749   | 23.45%     | 76.55%   | 06:34   |
-| 1     | 1.216979   | 0.894785   | 25.38%     | 74.62%   | 06:36   |
-| 2     | 0.852755   | 0.644162   | 18.39%     | 81.61%   | 06:37   |
-| 3     | 0.521366   | 0.478375   | 13.98%     | 86.02%   | 06:34   |
-| 4     | 0.352030   | 0.439929   | 12.69%     | 87.31%   | 06:32   |
-
+| Model       | Train Loss | Valid Loss | Error Rate | Accuracy |
+|-------------|------------|------------|------------|----------|
+| ResNet101   | 0.295220   | 0.618716   | 0.148737   | 0.851263 |
+| ResNet152   | 0.352030   | 0.439929   | 0.126900   | 0.873100 |
+| DenseNet201 | 0.262946   | 0.570337   | 0.145833   | 0.854167 |
+| VGG16       | 0.899876   | 0.768018   | 0.220257   | 0.779743 |
 
 ### Insights
 
-In the "Model Performance using ResNet152 Fit-One-Cycle" section, the initial epochs demonstrate a considerable disparity between training and validation losses, indicating potential overfitting. Despite an improving accuracy and decreasing error rate, it's clear that the model requires more fine-tuning to achieve a balance between the training and validation phases.
+#### Training Loss:
 
-On the other hand, the "Model Performance using ResNet152 Fine-Tuning" section highlights a more controlled approach. The model's progression across epochs is marked by decreasing loss, decreasing error rate, and increasing accuracy. Notably, the error rate drops significantly over the epochs, showcasing the effectiveness of fine-tuning. The training times are also reasonable, with each epoch taking a consistent duration.
+- Among the models, DenseNet201 achieved the lowest training loss (0.262946), indicating that it fits the training data very well. ResNet101 (0.295220) and ResNet152 (0.352030) also performed reasonably well in terms of training loss.
+- VGG16 had the highest training loss (0.899876), suggesting that it had more difficulty fitting the training data.
 
-Considering these observations, fine-tuning the ResNet152 model appears to be a more favorable approach. The controlled reduction in both loss and error rate along with increasing accuracy signify a more stable convergence towards optimized performance. The approach seems to yield a better trade-off between training and validation phases compared to the Fit-One-Cycle method.
+#### Validation Loss:
 
+- ResNet152 obtained the lowest validation loss (0.439929), indicating strong performance in generalization to unseen data. ResNet101 (0.618716) and DenseNet201 (0.570337) also performed reasonably well in terms of validation loss.
+- VGG16 had the highest validation loss (0.768018), suggesting potential overfitting.
+
+#### Error Rate:
+
+- ResNet152 had the lowest error rate (0.126900), demonstrating superior accuracy on the validation data.
+ResNet101 (0.148737) and DenseNet201 (0.145833) also exhibited low error rates, indicating strong predictive performance.
+- VGG16, despite having a higher training and validation loss, still achieved a reasonable error rate of 0.220257.
+
+#### Accuracy:
+
+- ResNet152 achieved the highest accuracy (0.873100), indicating its effectiveness in correctly classifying data instances.
+- DenseNet201 (0.854167) and ResNet101 (0.851263) also demonstrated high accuracy levels, though slightly lower than ResNet152.
+- VGG16, despite its higher losses, still managed to achieve an accuracy of 0.779743.
 
 ## Discussions
 
-Considering these observations, fine-tuning the ResNet152 model appears to be a more favorable approach. The controlled reduction in both loss and error rate along with increasing accuracy signify a more stable convergence towards optimized performance. The approach seems to yield a better trade-off between training and validation phases compared to the Fit-One-Cycle method.
+Overall, ResNet152 emerges as the top-performing model in terms of accuracy, error rate, and validation loss. It shows a strong ability to generalize and make accurate predictions on unseen data. However, it's essential to consider other factors, such as model complexity, training time, and resource constraints, when selecting the most suitable model for a specific application.
 
-Additionally, based on our observations, it seems suited that we decrease the number of layers for a better controlled performance. That is why, we are going to train the final model using ResNet101 variation.
+ResNet101, while not the highest in accuracy, provides a good balance between model performance and potential overfitting concerns. It may be favored if there are limitations on computational resources or if avoiding overfitting is a primary concern.
+
+DenseNet201 also performs well and can be a solid choice, particularly if computational resources are available.
+
+VGG16, while providing reasonable results, seems to struggle more with generalization, as indicated by its high validation loss relative to other models.
 
 ## Selected Model
+
 Upon considering our benchmarking results, the classification model used in this project is ResNet101, a deep convolutional neural network known for its excellent performance in image classification tasks. The model has been pre-trained on a large dataset and fine-tuned on the bird image dataset to improve its accuracy and ability to classify bird orders.
 
-
-
-### Model Performance on RESNET101 for the First 5 Epochs
-
-This repository contains the performance metrics of our model trained on the RESNET101 architecture for the first 5 epochs. Below are the details of the training process and the corresponding results:
-
-#### Training Details
-
-- **Model**: RESNET101
-- **Training Time**: Approximately 24 minutes
-- **Batch Size**: 32
-- **Learning Rate**: Not Used
-- **Model Freezing**: No (before training)
-
-#### Performance Metrics
-
-Epoch | Train Loss | Valid Loss | Error Rate | Accuracy |
------ | ---------- | ---------- | ---------- | -------- |
-0     | 1.201289   | 0.965389   | 0.269411   | 0.730589 |
-1     | 1.223704   | 0.884236   | 0.224509   | 0.775491 |
-2     | 0.811814   | 0.741591   | 0.184284   | 0.815716 |
-3     | 0.493227   | 0.625785   | 0.163704   | 0.836296 |
-4     | 0.295220   | 0.618716   | 0.148737   | 0.851263 |
+### Performance Metrics
 
 The model shows improvement in terms of decreasing loss, error rate, and increasing accuracy as the training progresses. These initial results indicate that the model was learning and becoming more accurate in classifying the bird orders.
 
